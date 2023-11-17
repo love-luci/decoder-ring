@@ -6,9 +6,26 @@
 const substitutionModule = (function () {
   // you can add any code you want within this function scope
 
+  function translate(input, from, to) {
+    const result = [];
+    const message = input.toLowerCase().split("")
+
+    //! look out for if currentIndex = -1 in terms of errors
+    message.forEach((letter) => {
+      
+    });
+  };
+
   function substitution(input, alphabet, encode = true) {
     // your solution code here
-  }
+    const  originalAlphabet= "abcdefghijklmnopqrstuvwxyz".split("");
+    const encodedAlphabet = alphabet.split("");
+
+    if(encode) {
+      return translate(input,originalAlphabet,encodedAlphabet);
+    }
+    return translate(input,encodedAlphabet,originalAlphabet);
+  };
 
   return {
     substitution,

@@ -32,7 +32,6 @@ describe("substitution()", () => {
   });
 
   describe("encoding a message", () => {
-    //? should i make two separate tests for alphabets with and without unique characters?
     it("should encode the given message using the substitution alphabet", () => {
         const message = "sonder";
         const alphabet = "!q@w#e$r%t^y&u*i;o<p+a_s>d";
