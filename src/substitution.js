@@ -15,11 +15,12 @@ const substitutionModule = (function () {
        const originalIndex = from.findIndex((fromLetter) => fromLetter===letter);
        if(originalIndex === -1) {
         result.push(letter);
-       }
+       };
        const translatedLetter = to[originalIndex];
        result.push(translatedLetter);
     });
-    return result;
+    //*forgot to add .join >_<
+    return result.join("");
   };
 
   function substitution(input, alphabet, encode = true) {
@@ -42,7 +43,7 @@ const substitutionModule = (function () {
 
     if(encode) {
       return translate(input,originalAlphabet,encodedAlphabet);
-    };
+    } 
     return translate(input,encodedAlphabet,originalAlphabet);
   };
 
