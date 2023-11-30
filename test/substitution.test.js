@@ -1,6 +1,6 @@
 // Write your tests here!
 const expect = require("chai").expect;
-const {caesar} = require("../src/caesar");
+const {substitution} = require("../src/substitution");
 
 describe("substitution()", () => {
   describe("error handling", () => {
@@ -16,7 +16,7 @@ describe("substitution()", () => {
         const message = "sonder";
         const alphabet = "smol";
 
-        const actual = substitution(message, alphabet);
+        const actual = substitution(message,alphabet);
         const expected = false;
         expect(actual).to.equal(expected);
     });
@@ -25,7 +25,7 @@ describe("substitution()", () => {
         const message = "sonder";
         const alphabet = "duuplicates";
 
-        const actual = substitution(message, alphabet);
+        const actual = substitution(message,alphabet);
         const expected = false;
         expect(actual).to.equal(expected);
     }); 
@@ -36,17 +36,27 @@ describe("substitution()", () => {
         const message = "sonder";
         const alphabet = "!q@w#e$r%t^y&u*i;o<p+a_s>d";
 
-        const actual = substitution(message, alphabet);
+        const actual = substitution(message,alphabet);
         const expected = "<*uw#o";
         expect(actual).to.equal(expected);
     });
     
     it("should leave spaces as is", () => {
-        expect(1).toBe(2);
+        const message = "merry christmas";
+        const alphabet = "!q@w#e$r%t^y&u*i;o<p+a_s>d";
+
+        const actual = substitution(message,alphabet);
+        const expected = "&#oo> @ro%<p&!<"
+        expect(actual).to.equal(expected);
     });
     
     it("should ignore capital letters", () => {
-        expect(1).toBe(2);
+        const message = "ACHOO";
+        const alphabet = "!q@w#e$r%t^y&u*i;o<p+a_s>d";
+
+        const actual = substitution(message,alphabet);
+        const expected = "!@r**"
+        expect(actual).to.equal(expected);
     });
   });
 
@@ -55,17 +65,27 @@ describe("substitution()", () => {
         const message = "<*uw#o";
         const alphabet = "!q@w#e$r%t^y&u*i;o<p+a_s>d";
 
-        const actual = substitution(message, alphabet);
+        const actual = substitution(message,alphabet,false);
         const expected = "sonder";
         expect(actual).to.equal(expected);
     });
     
     it("should leave spaces as is", () => {
-        expect(1).toBe(2);
+        const message = "&#oo> @ro%<p&!<";
+        const alphabet = "!q@w#e$r%t^y&u*i;o<p+a_s>d";
+
+        const actual = substitution(message, alphabet, false);
+        const expected = "merry christmas";
+        expect(actual).to.equal(expected);
     });
 
     it("should ignore capital letters", () => {
-        expect(1).toBe(2);
+        const message = "!@R**";
+        const alphabet = "!q@w#e$r%t^y&u*i;o<p+a_s>d";
+
+        const actual = substitution(message,alphabet,false);
+        const expected = "achoo";
+        expect(actual).to.equal(expected);
     });
   });
 });
