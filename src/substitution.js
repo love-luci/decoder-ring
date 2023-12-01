@@ -32,6 +32,7 @@ const substitutionModule = (function () {
     const  originalAlphabet= "abcdefghijklmnopqrstuvwxyz".split("");
     const encodedAlphabet = alphabet.split("");
 
+//*checks for duplicate characters
     const letterSet = {};
     encodedAlphabet.forEach((letter) => {
       letterSet[letter] = true;
